@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('conFusion', ['ionic', 'conFusion.controllers'])
+angular.module('conFusion', ['ionic', 'conFusion.controllers', 'conFusion.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -28,46 +28,54 @@ angular.module('conFusion', ['ionic', 'conFusion.controllers'])
     .state('app', {
     url: '/app',
     abstract: true,
-    templateUrl: 'templates/menu.html',
+    templateUrl: 'templates/sidebar.html',
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: '/search',
+  .state('app.home', {
+    url: '/home',
     views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
+      'mainContent': {
+        templateUrl: 'templates/home.html'
       }
     }
   })
 
-  .state('app.browse', {
-      url: '/browse',
+  .state('app.aboutus', {
+      url: '/aboutus',
       views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
+        'mainContent': {
+          templateUrl: 'templates/aboutus.html'
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
+    .state('app.contactus', {
+      url: '/contactus',
       views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
+        'mainContent': {
+          templateUrl: 'templates/contactus.html'
+        }
+      }
+    })
+    .state('app.menu', {
+      url: '/menu',
+      views: {
+        'mainContent': {
+          templateUrl: 'templates/menu.html',
           controller: 'PlaylistsCtrl'
         }
       }
     })
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
+  .state('app.dishdetail', {
+    url: '/menu/:id',
     views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
+      'mainContent': {
+        templateUrl: 'templates/dishdetail.html',
         controller: 'PlaylistCtrl'
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/home');
 });
