@@ -32,11 +32,12 @@ angular.module('conFusion', ['ionic', 'conFusion.controllers', 'conFusion.servic
     controller: 'AppCtrl'
   })
 
-  .state('app.home', {
+   .state('app.home', {
     url: '/home',
     views: {
       'mainContent': {
-        templateUrl: 'templates/home.html'
+        templateUrl: 'templates/home.html',
+          controller: 'IndexController'
       }
     }
   })
@@ -62,17 +63,17 @@ angular.module('conFusion', ['ionic', 'conFusion.controllers', 'conFusion.servic
       views: {
         'mainContent': {
           templateUrl: 'templates/menu.html',
-          controller: 'PlaylistsCtrl'
+          controller: 'MenuController'
         }
       }
     })
 
-  .state('app.dishdetail', {
+  .state('app.dishdetails', {
     url: '/menu/:id',
     views: {
       'mainContent': {
         templateUrl: 'templates/dishdetail.html',
-        controller: 'PlaylistCtrl'
+        controller: 'DishDetailController'
       }
     }
   });
