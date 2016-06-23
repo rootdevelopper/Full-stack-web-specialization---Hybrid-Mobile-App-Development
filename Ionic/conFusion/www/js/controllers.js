@@ -86,7 +86,8 @@ angular.module('conFusion.controllers', [])
             };
         }])
 
-        .controller('ContactController', ['$scope', function($scope) {
+        .controller('ContactController', ['$scope','baseURL', function($scope, baseURL) {
+            $scope.baseURL = baseURL;
 
             $scope.feedback = {mychannel:"", firstName:"", lastName:"", agree:false, email:"" };
             
@@ -97,7 +98,7 @@ angular.module('conFusion.controllers', [])
                         
         }])
 
-        .controller('FeedbackController', ['$scope', 'feedbackFactory', function($scope,feedbackFactory) {
+        .controller('FeedbackController', 'baseURL', ['$scope', 'feedbackFactory', function($scope,feedbackFactory, baseURL) {//probably don't need it
             
             $scope.sendFeedback = function() {
                 
@@ -139,8 +140,8 @@ angular.module('conFusion.controllers', [])
             
         }])
 
-        .controller('DishCommentController', ['$scope', 'menuFactory', function($scope,menuFactory) {
-            
+        .controller('DishCommentController', ['$scope', 'menuFactory', 'baseURL', function($scope,menuFactory,baseURL) {
+            $scope.baseURL = baseURL;
             $scope.mycomment = {rating:5, comment:"", author:"", date:""};
             
             $scope.submitComment = function () {
@@ -178,8 +179,9 @@ angular.module('conFusion.controllers', [])
                         $scope.promotion = menuFactory.getPromotion().get({id:0});
       }])
 
-        .controller('AboutController', ['$scope', 'corporateFactory', function($scope, corporateFactory) {
+        .controller('AboutController', ['$scope', 'corporateFactory','baseURL', function($scope, corporateFactory, baseURL) {
             
+                    $scope.baseURL = baseURL;
                     $scope.leaders = corporateFactory.query();
                     console.log($scope.leaders);
             

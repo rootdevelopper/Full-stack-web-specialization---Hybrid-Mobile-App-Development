@@ -1,5 +1,54 @@
-<ion-view view-title="About Us">
-  <ion-content>
-    <h1>About Us</h1>
+<ion-view view-title="About Us">   
+ <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="lead in leadership | filter:{abbr: filtText}" href="#/app/aboutus'/{{lead.id}}" class="item-thumbnail-left">
+        <img ng-src="{{baseURL+lead.image}}">
+        <h2>{{lead.name}}
+         <span style="font-size:75%">{{lead.designation}}</span>
+        <span class="badge badge-assertive">{{dish.label}}</span></h2>
+        <p>{{lead.description}}</p>
+      </ion-item>
+    </ion-list>
   </ion-content>
-</ion-view>
+                                                
+<!-- 
+ <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="dish in dishes | filter:{category: filtText}" href="#/app/menu/{{dish.id}}" class="item-thumbnail-left">
+        <img ng-src="{{baseURL+dish.image}}">
+        <h2>{{dish.name}}
+         <span style="font-size:75%">{{dish.price | currency}}</span>
+        <span class="badge badge-assertive">{{dish.label}}</span></h2>
+        <p>{{dish.description}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+---------------------- dish
+"dishes": [
+{
+"id": 0,
+"name": "Uthapizza",
+"image": "images/uthapizza.png",
+"category": "mains",
+"label": "Hot",
+"price": "4.99",
+"description": 
+
+------------------------lead
+
+
+"leadership": [
+{
+"id": 0,
+"name": "Peter Pan",
+"image": "images/alberto.png",
+"designation": "Chief Epicurious Officer",
+"abbr": "CEO",
+"description"
+
+
+
+
+
+-->

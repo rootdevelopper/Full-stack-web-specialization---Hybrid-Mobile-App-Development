@@ -4,6 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
+//to start the server go to /Ionic/json-server and type $ json-server --watch db.json
+//then on a separate window go to confusion app, then type $ ionic serve --lab
+
 angular.module('conFusion', ['ionic', 'conFusion.controllers', 'conFusion.services'])
 
 .run(function($ionicPlatform) {
@@ -37,7 +40,7 @@ angular.module('conFusion', ['ionic', 'conFusion.controllers', 'conFusion.servic
     views: {
       'mainContent': {
         templateUrl: 'templates/home.html',
-          controller: 'IndexController'
+          controller: 'IndexController'//when adding this controller all images and text appear on app
       }
     }
   })
@@ -46,7 +49,8 @@ angular.module('conFusion', ['ionic', 'conFusion.controllers', 'conFusion.servic
       url: '/aboutus',
       views: {
         'mainContent': {
-          templateUrl: 'templates/aboutus.html'
+          templateUrl: 'templates/aboutus.html',
+            controller:'AboutController'//works properly
         }
       }
     })
@@ -54,7 +58,8 @@ angular.module('conFusion', ['ionic', 'conFusion.controllers', 'conFusion.servic
       url: '/contactus',
       views: {
         'mainContent': {
-          templateUrl: 'templates/contactus.html'
+          templateUrl: 'templates/contactus.html',
+            controller: 'ContactController'//works properly
         }
       }
     })
@@ -63,7 +68,7 @@ angular.module('conFusion', ['ionic', 'conFusion.controllers', 'conFusion.servic
       views: {
         'mainContent': {
           templateUrl: 'templates/menu.html',
-          controller: 'MenuController'
+            controller: 'MenuController'//defined on excercise
         }
       }
     })
@@ -73,7 +78,7 @@ angular.module('conFusion', ['ionic', 'conFusion.controllers', 'conFusion.servic
     views: {
       'mainContent': {
         templateUrl: 'templates/dishdetail.html',
-        controller: 'DishDetailController'
+            controller: 'DishDetailController'//defined on excercise
       }
     }
   });
